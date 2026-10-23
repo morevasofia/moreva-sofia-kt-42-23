@@ -1,0 +1,6 @@
+@MorevaSofiaKt4223_HostAddress = http://localhost:5174
+
+GET {{MorevaSofiaKt4223_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
