@@ -1,5 +1,7 @@
 using NLog;
 using NLog.Web;
+using Microsoft.EntityFrameworkCore;
+using MorevaSofiaKt4223.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,10 @@ try
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
+
+    builder.Services.AddDbContext<StudentDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
 
     var app = builder.Build();
 
